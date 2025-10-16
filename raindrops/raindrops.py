@@ -1,19 +1,5 @@
+DROPS = ("i", 3), ("a", 5), ("o", 7)
+
+
 def convert(number: int) -> str:
-    results = []
-    is_div_by_three = number % 3 == 0
-    is_div_by_five = number % 5 == 0
-    is_div_by_seven = number % 7 == 0
-
-    if is_div_by_three:
-        results.append("Pling")
-
-    if is_div_by_five:
-        results.append("Plang")
-
-    if is_div_by_seven:
-        results.append("Plong")
-
-    if len(results) < 1:
-        return str(number)
-
-    return "".join(results)
+    return "".join(f"Pl{i}ng" for i, v in DROPS if not number % v) or str(number)
